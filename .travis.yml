@@ -92,7 +92,12 @@ jobs:
         #- sudo apt-get install libblas3 liblapack3 liblapack-dev libblas-dev gfortran g++
         #- sudo curl -s https://packagecloud.io/install/repositories/abeja/platform-public/script.deb.sh | sudo bash
         - sudo conda install conda
-        - sudo conda install -c bokeh jupyter_bokeh
+        - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+          sudo conda install -c bokeh; 
+          sudp pip install jupyter-bokeh;
+          else
+          sudo conda install -c bokeh jupyter_bokeh;
+          fi
         - sudo conda install -c anaconda cython
         - sudo conda install -c anaconda numpy
         - sudo conda install scikit-learn
