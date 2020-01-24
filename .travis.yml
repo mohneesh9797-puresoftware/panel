@@ -94,7 +94,7 @@ jobs:
         - sudo conda install conda
         - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
           sudo conda install -c bokeh; 
-          sudp pip install jupyter-bokeh;
+          sudo pip install jupyter-bokeh;
           else
           sudo conda install -c bokeh jupyter_bokeh;
           fi
